@@ -49,4 +49,13 @@ describe("Thermostat", function() {
     expect(thermostat.displayTemp()).toEqual(20);
   })
 
+  it("Should colour the display based on energy usage", function(){
+    thermostat.temp = 17;
+    expect(thermostat.displayColour()).toEqual("green");
+    thermostat.temp = 23;
+    expect(thermostat.displayColour()).toEqual("yellow");
+    thermostat.temp = 25;
+    expect(thermostat.displayColour()).toEqual("red");
+  })
+
 });
