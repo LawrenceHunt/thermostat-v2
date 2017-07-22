@@ -15,7 +15,13 @@ describe("Thermostat", function() {
     var temp1 = thermostat.displayTemp();
     thermostat.increaseByOne();
     var temp2 = thermostat.displayTemp();
-    expect(temp1).not.toEqual(temp2);
+    expect(temp2).toEqual(temp1 + 1);
   })
 
+  it("should decrease the temp on push down button", function(){
+    var temp1 = thermostat.displayTemp();
+    thermostat.decreaseByOne();
+    var temp2 = thermostat.displayTemp();
+    expect(temp2).toEqual(temp1 - 1);
+  })
 });
