@@ -27,4 +27,12 @@ describe("Thermostat", function() {
     }
     expect(thermostat.displayTemp()).toEqual(10)
   });
+
+  it("should have a maximum temp in power saving mode of 25 degrees", function() {
+    thermostat.powerSavingMode = true;
+    for(var i = 0; i < 6 ; i++) {
+      thermostat.increaseByOne();
+    }
+    expect(thermostat.displayTemp()).toEqual(25);
+  })
 });
