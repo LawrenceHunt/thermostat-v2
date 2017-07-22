@@ -1,0 +1,7 @@
+Thermostat starts at 20 degrees
+
+Up button increases temperature
+
+down button decreases temperature
+
+Minimum is 10 degrees
