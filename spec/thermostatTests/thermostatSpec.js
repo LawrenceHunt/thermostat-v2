@@ -29,10 +29,24 @@ describe("Thermostat", function() {
   });
 
   it("should have a maximum temp in power saving mode of 25 degrees", function() {
-    thermostat.powerSavingMode = true;
     for(var i = 0; i < 6 ; i++) {
       thermostat.increaseByOne();
     }
     expect(thermostat.displayTemp()).toEqual(25);
   })
+
+  it("should have a maximum temp in non-power saving mode of 32 degrees", function() {
+    thermostat.togglePowerSavingMode();
+    for(var i = 0; i < 13 ; i++) {
+      thermostat.increaseByOne();
+    }
+    expect(thermostat.displayTemp()).toEqual(32);
+  })
+
+  it("Should reset to 20 when reset is pushed", function(){
+    thermostat.increaseByOne();
+    thermostat.resetTemp();
+    expect(thermostat.displayTemp()).toEqual(20);
+  })
+
 });
