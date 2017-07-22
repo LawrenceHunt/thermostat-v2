@@ -12,16 +12,19 @@ describe("Thermostat", function() {
   });
 
   it("should increase the temp on push up button", function() {
-    var temp1 = thermostat.displayTemp();
     thermostat.increaseByOne();
-    var temp2 = thermostat.displayTemp();
-    expect(temp2).toEqual(temp1 + 1);
+    expect(thermostat.displayTemp()).toEqual(21);
   })
 
   it("should decrease the temp on push down button", function(){
-    var temp1 = thermostat.displayTemp();
     thermostat.decreaseByOne();
-    var temp2 = thermostat.displayTemp();
-    expect(temp2).toEqual(temp1 - 1);
+    expect(thermostat.displayTemp()).toEqual(19);
   })
+
+  it("should have a minimum of 10 degrees", function(){
+    for(var i = 0; i < 11; i++) {
+      thermostat.decreaseByOne();
+    }
+    expect(thermostat.displayTemp()).toEqual(10)
+  });
 });
